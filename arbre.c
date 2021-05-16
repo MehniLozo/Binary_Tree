@@ -1,6 +1,6 @@
 
 
-/****************PARTIE IMPLEMENTATION ARBRE BINAIRE************/
+/**********************************PARTIE IMPLEMENTATION ARBRE BINAIRE******************************/
 
 
 
@@ -42,4 +42,47 @@ char lire_racine(struct noeud *a)
 {
     assert(!arbre_vide(a));
     return a->info;
+}
+
+/************************************IMPLEMTNATION FILE*************************************/
+void creer_file(struct file* f)
+{
+    f->tete = NULL;
+    f->queue = NULL;
+}
+unsigned file_vide(struct file f)
+{
+    return(f.tete == NULL && f.queue == NULL);
+}
+struct noeud*  premier(struct file f)
+{
+    assert(!file_vide(f));
+    return f.tete->info;
+}
+void enfiler(struct noeud* x,struct file *f)
+{
+    struct elem* q;
+    q = (struct elem*)malloc(sizeof(struct elem));
+    q->suivant = NULL;
+    q->info = x;
+    
+    //there are two cases 
+    //empty queue and filled one 
+    if(!file_vide(*f))
+    
+     f->queue->suivant = q;
+    else
+        f->tete = q;
+   //We will add from the queue in both cases 
+   
+    f->queue = q;
+   } 
+void defiler(struct file *f)
+{
+   assert(!file_vide(*f));
+    struct elem *q = f->tete;
+    f->tete = f->tete->suivant;
+    free(q);
+    if(f->tete == NULL) //if ever the head is NULL,forcely the queue = NULL AUSSI
+        f->queue = NULL;
 }
