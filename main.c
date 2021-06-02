@@ -29,8 +29,21 @@ int main()
 {
 
     struct noeud* ab = creer_arbre();
-    struct noeud* ab2= creer_arbre();
+    /*
+     ab = construire(100,construire(50,construire(20,NULL,NULL),construire(70,NULL,NULL)
+                ),construire(150,construire(200,NULL,NULL),
+                    construire(350,NULL,NULL)));
+     */
+    //arbre dégenéré
+    ab = construire(100,construire(50,NULL,construire(80,NULL,NULL)),NULL);
+    if(est_degeneree(ab))
+               printf("\nabre ab est dégeneree\n");
+     else
+         printf("\nArbre non degenere\n");
 
+
+    /*
+    struct noeud* ab2= creer_arbre();
     ab = construire(100,construire(50,construire(20,NULL,NULL),construire(70,NULL,NULL)
                 ),construire(150,construire(200,NULL,NULL),
                     construire(350,NULL,NULL)));
@@ -38,13 +51,7 @@ int main()
                 ),construire(150,construire(200,NULL,NULL),
                     construire(15,NULL,NULL)));
    
-    /*
-    ab2= construire(100,construire(50,construire(20,NULL,NULL),construire(70,NULL,NULL)
-                ),construire(150,construire(200,NULL,NULL),
-                    construire(350,NULL,NULL)));
-   
-                
-    */ printf("\n*********AFFICHAGE********\n");
+     printf("\n*********AFFICHAGE********\n");
      affichage(ab);
      printf("\n");
      affichage(ab2);
@@ -52,4 +59,7 @@ int main()
         printf("\nBoth trees of %d and %d are equal\n",ab->info,ab->info);
      else
          printf("\nTrees are not equal.\n");
-return 0;}
+    */
+    
+     
+   return 0;}

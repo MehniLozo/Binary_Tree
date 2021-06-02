@@ -1,4 +1,4 @@
-# Binary_Tree
+# BinaryTree
 Binary Tree Boilerplate
 
 Binary Tree infrastructure along with Queues one 
@@ -15,3 +15,10 @@ and we compare these queue elements with each others
 
 NB: two trees are identical unless they have the same structure aswell the same
 node contents.
+
+
+Module contains:
+-Binary tree construction
+-Binary tree queue display
+-degenerated/pathological function check
+-Tree-similarity check function

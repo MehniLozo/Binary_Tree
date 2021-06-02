@@ -14,6 +14,7 @@ struct noeud* gauche(struct noeud*);
 struct noeud* droite(struct noeud*);
 int lire_racine(struct noeud* );
 unsigned arbre_confondues(struct noeud *ra,struct noeud *rb);
+unsigned est_degeneree(struct noeud *abr);
 
 /****************PARTIE INTERFACE FILE***********/
 /*So,the content of the queue is gonna be struct elem*  */

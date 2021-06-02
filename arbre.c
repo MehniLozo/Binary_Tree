@@ -101,6 +101,28 @@ unsigned arbre_confondues(struct noeud *ra,struct noeud *rb)
 
 return 1;
 }
+
+unsigned est_degeneree(struct noeud *abr)
+{
+    //Degenerated/pathological
+    /*Un
+     * arbre binaire est dit dégénéré si
+     chacun de ses noeuds a au plus un fils.*/
+    
+  
+    struct noeud *q = abr;
+    while(q)
+    {
+        if(q->sag && q->sad)
+            return 0;
+        if(q->sag)
+            q = q->sag;
+        else
+            q = q->sad;
+    
+   }
+return 1;
+}
 /************************************IMPLEMTNATION FILE*************************************/
 void creer_file(struct file* f)
 {
