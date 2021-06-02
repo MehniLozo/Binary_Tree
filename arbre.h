@@ -2,17 +2,18 @@
 
 /****************PARTIE INTERFACE ARBRE BINAIRE************/
 struct noeud{ 
-    char info;
+    int info;
     struct noeud *sag;
     struct noeud *sad;
 };
 
 struct noeud* creer_arbre();
 unsigned arbre_vide(struct noeud*);
-struct noeud* construire(char,struct noeud* ,struct noeud*);
+struct noeud* construire(int,struct noeud* ,struct noeud*);
 struct noeud* gauche(struct noeud*);
 struct noeud* droite(struct noeud*);
-char lire_racine(struct noeud* );
+int lire_racine(struct noeud* );
+unsigned arbre_confondues(struct noeud *ra,struct noeud *rb);
 
 /****************PARTIE INTERFACE FILE***********/
 /*So,the content of the queue is gonna be struct elem*  */

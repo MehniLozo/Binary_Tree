@@ -19,7 +19,7 @@ unsigned arbre_vide(struct noeud* a)
 {
     return a == NULL;
 }
-struct noeud* construire(char x ,struct noeud* sag,struct noeud* sad)
+struct noeud* construire(int x ,struct noeud* sag,struct noeud* sad)
 {
   struct noeud* a = (struct noeud*)malloc(sizeof(struct noeud*));
       a->info =  x;
@@ -38,12 +38,69 @@ struct noeud* droite(struct noeud* a)
     assert(!arbre_vide(a));
     return a->sad;
 }
-char lire_racine(struct noeud *a)
+int lire_racine(struct noeud *a)
 {
     assert(!arbre_vide(a));
     return a->info;
 }
 
+unsigned arbre_confondues(struct noeud *ra,struct noeud *rb)
+{
+
+   /*Two trees are identical when they have same data and arrangement of data is also same. To identify if two trees are identical, we need to traverse both
+     trees simultaneously, and while traversing we need to compare
+    data and children of the trees*/ 
+
+    /*idea is.. you will kind of mimic the display algorithm
+      and instead of displaying the nodes content you're gonna compare.
+      Obviously,you're gonna need two queues for the job
+        cases:
+            -same position nodes are/n't equal
+      */
+
+    assert(!arbre_vide(ra));
+    assert(!arbre_vide(rb));
+    struct file fa,fb;
+    
+    creer_file(&fa);
+    creer_file(&fb);
+
+    struct noeud* ta = ra,*tb = rb;
+
+    enfiler(ta,&fa);
+    enfiler(tb,&fb);
+
+    printf("\n");
+    while(!file_vide(fa) && !file_vide(fb))
+    {
+        ta = premier(fa);
+        tb = premier(fb);
+    
+
+      if(ta->info != tb->info)
+            return 0;
+        defiler(&fa);
+        defiler(&fb);   
+       
+        if(ta->sag)
+            enfiler(ta->sag,&fa);
+        if(ta->sad)
+           enfiler(ta->sad,&fa);
+
+        if(tb->sag)
+            enfiler(tb->sag,&fb);
+        if(ta->sad)
+           enfiler(tb->sad,&fb);
+
+
+
+
+    }
+
+
+
+return 1;
+}
 /************************************IMPLEMTNATION FILE*************************************/
 void creer_file(struct file* f)
 {
