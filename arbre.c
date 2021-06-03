@@ -8,7 +8,7 @@
 #include <assert.h>
 #include <stdlib.h>
 #include <stdio.h>
-#include "arbre.h"
+#include "liste.c"
 
 
 struct noeud* creer_arbre()
@@ -122,6 +122,31 @@ unsigned est_degeneree(struct noeud *abr)
     
    }
 return 1;
+}
+void parcours_niveau_trie(struct noeud * abr)
+{
+    /*Avec une arbre binaire contenant des entiers.
+      on va creer un algorithme qui va rendre la liste des
+      elements entiers triés par ordre croissant sans utiliser 
+      un algorithme de tri*/
+    struct file f; creer_file(&f);
+    creer_liste();
+    struct noeud* t ;
+    enfiler(abr,&f);
+    while(!file_vide(f))
+    {
+        t = premier(f);
+        ajout_trie(t);
+        defiler(&f);
+
+       if(t->sad)
+          enfiler(t->sad,&f);
+       if(t->sag)
+         enfiler(t->sag,&f); 
+    
+    }
+
+
 }
 /************************************IMPLEMTNATION FILE*************************************/
 void creer_file(struct file* f)

@@ -29,19 +29,29 @@ int main()
 {
 
     struct noeud* ab = creer_arbre();
-    /*
+   /* 
      ab = construire(100,construire(50,construire(20,NULL,NULL),construire(70,NULL,NULL)
                 ),construire(150,construire(200,NULL,NULL),
                     construire(350,NULL,NULL)));
-     */
+    */ 
+    ab = construire(0,construire(9,construire(6,NULL,NULL),construire(10,NULL,NULL))
+            ,construire(7,construire(8,NULL,NULL),construire(5,NULL,NULL)));
+
+    printf("\naffichage trié d'arbre\n");
+     parcours_niveau_trie(ab);
+     affiche();
+
     //arbre dégenéré
+    /*
     ab = construire(100,construire(50,NULL,construire(80,NULL,NULL)),NULL);
     if(est_degeneree(ab))
                printf("\nabre ab est dégeneree\n");
      else
          printf("\nArbre non degenere\n");
 
-
+     parcours_niveau_trie(ab);
+     affiche();
+*/
     /*
     struct noeud* ab2= creer_arbre();
     ab = construire(100,construire(50,construire(20,NULL,NULL),construire(70,NULL,NULL)

@@ -22,3 +22,4 @@ Module contains:
 -Binary tree queue display
 -degenerated/pathological function check
 -Tree-similarity check function
+-Display a binary tree in a sequential way (ordered) using both queue and list
