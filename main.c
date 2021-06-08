@@ -29,18 +29,32 @@ int main()
 {
 
     struct noeud* ab = creer_arbre();
+    ab = construire(1, construire(2,construire(4,NULL,NULL),construire(5,NULL,NULL))
+            ,construire(3,construire(6,NULL,NULL),NULL));
+    printf("\nprofondeur = %d\n",profondeur(ab));
+
+
+
+
+
+
+
+
+
+
    /* 
      ab = construire(100,construire(50,construire(20,NULL,NULL),construire(70,NULL,NULL)
                 ),construire(150,construire(200,NULL,NULL),
                     construire(350,NULL,NULL)));
     */ 
+    /*
     ab = construire(0,construire(9,construire(6,NULL,NULL),construire(10,NULL,NULL))
             ,construire(7,construire(8,NULL,NULL),construire(5,NULL,NULL)));
 
     printf("\naffichage trié d'arbre\n");
      parcours_niveau_trie(ab);
      affiche();
-
+*/
     //arbre dégenéré
     /*
     ab = construire(100,construire(50,NULL,construire(80,NULL,NULL)),NULL);

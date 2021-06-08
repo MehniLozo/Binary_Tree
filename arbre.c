@@ -123,6 +123,63 @@ unsigned est_degeneree(struct noeud *abr)
    }
 return 1;
 }
+unsigned profondeur(struct noeud* abr)
+{
+   /*Approach is quite similar to "Level Order Traversal" (parcous par niveau)
+    * initialise height = 0
+    * "NULL" is gonna be used as a"marker"at "every level",so whenever we encounter
+    * "NULL" we will increment the height+1
+    *  -First add root to the QUEUE and add NULL as well as its marker
+    *  -Extract a node from QUEUE
+    *  -Check if it is "NULL" ,it means either we reached to the end of level or
+    *   entire tree is traversed
+    *  -So before adding NULL as marker to the next level,check if queue is 
+    *  empty,which means we have traveled all the levels and if not empty
+    *  then add NULL as marker and increase height +1
+    *
+    * */
+    /*
+     *WHEN SHOULD WE PUT THE NULL ELEMENT??
+
+
+    NOTE : THE BELOW FUNCTION HAS FEW  ERRANEOUS PARTS ,ITS UNDER MAINTENANCE
+     * */
+    struct noeud *t;
+
+
+    struct file f; creer_file(&f);
+    enfiler(abr,&f); enfiler(NULL,&f); //its marker
+    t = premier(f);
+    unsigned height =-1;
+    printf("\n");
+    while(t || !file_vide(f))
+    {
+        t = premier(f);
+        defiler(&f);
+        
+        if(t)
+            printf("%d\t",t->info);
+       
+        if(!t)
+        {
+            height++;
+
+        }
+        
+        if(t->sag || t->sad)
+        {
+            if(t->sag)
+                enfiler(t->sag,&f);
+            if(t->sad)
+                enfiler(t->sad,&f);     
+        }
+   
+    }
+    
+    return height;
+
+
+}
 void parcours_niveau_trie(struct noeud * abr)
 {
     /*Avec une arbre binaire contenant des entiers.
@@ -130,7 +187,7 @@ void parcours_niveau_trie(struct noeud * abr)
       elements entiers triés par ordre croissant sans utiliser 
       un algorithme de tri*/
     struct file f; creer_file(&f);
-    creer_liste();
+    creer_liste(); //OA liste
     struct noeud* t ;
     enfiler(abr,&f);
     while(!file_vide(f))
